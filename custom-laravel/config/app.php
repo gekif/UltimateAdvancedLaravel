@@ -124,6 +124,10 @@ return [
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
+    'developers' => [
+      'dzulfikar.maulana@gmail.com'
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
