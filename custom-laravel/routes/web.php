@@ -30,8 +30,24 @@
 //});
 
 
-Route::middleware('admin')->prefix('admin')->group(function () {
+//Route::middleware('admin')->prefix('admin')->group(function () {
+//
+//});
 
+Route::get('/admin', function () {
+
+    if (!auth()->check()) {
+        throw new \App\Exceptions\HackerAlertException();
+    }
+
+});
+
+
+Route::get('/{id}', function (\Illuminate\Http\Request $request, $id) {
+
+//    return \App\User::find($id);
+
+    return \App\User::findOrFail($id);
 
 });
 
