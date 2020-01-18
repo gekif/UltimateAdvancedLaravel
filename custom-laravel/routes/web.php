@@ -12,7 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+//    return view('welcome');
+
+    $medium = resolve('medium-php-sdk');
+
+    dd($medium);
+
 });
 
 
