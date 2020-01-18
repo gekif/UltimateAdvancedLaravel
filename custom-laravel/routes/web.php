@@ -11,28 +11,34 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
 
 //    return view('welcome');
 
-    $medium = resolve('medium-php-sdk');
+//    $medium = resolve('medium-php-sdk');
 
-    dd($medium);
+//    dd($medium);
 
+//    dd(session()->get('test'));
+
+});*/
+
+Route::middleware('test')->get('/', function () {
+    return view('welcome');
 });
 
 
-Route::get('/custom', function () {
-
-    dd(config('app.developers'));
-
-    dd(config('blog.administrators'));
-
-    dd(env('APP_CREATOR'));
-
-    dd(config('blog.creator'));
-
-});
+//Route::get('/custom', function () {
+//
+//    dd(config('app.developers'));
+//
+//    dd(config('blog.administrators'));
+//
+//    dd(env('APP_CREATOR'));
+//
+//    dd(config('blog.creator'));
+//
+//});
 
 Auth::routes();
 
