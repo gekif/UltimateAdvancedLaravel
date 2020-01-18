@@ -128,6 +128,10 @@ return [
       'dzulfikar.maulana@gmail.com'
     ],
 
+    'administrators' => [
+        'dzulfikar.maulana@gmail.com'
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

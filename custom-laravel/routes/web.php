@@ -11,6 +11,7 @@
 |
 */
 
+
 /*Route::get('/', function () {
 
 //    return view('welcome');
@@ -23,8 +24,15 @@
 
 });*/
 
-Route::middleware('test')->get('/', function () {
-    return view('welcome');
+
+//Route::middleware('test')->get('/', function () {
+//    return view('welcome');
+//});
+
+
+Route::middleware('admin')->prefix('admin')->group(function () {
+
+
 });
 
 
@@ -40,6 +48,8 @@ Route::middleware('test')->get('/', function () {
 //
 //});
 
+
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
