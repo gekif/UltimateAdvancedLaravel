@@ -31,8 +31,11 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/post/{id}', function ($id) {
-    $post = Post::find($id);
+//Route::get('/post/{id}', function ($id) {
+//    $post = Post::find($id);
+//
+//    return view('post')->withPost($post);
+//});
 
-    return view('post')->withPost($post);
-});
+
+Route::get('/post/{id}', 'PostsController@index');
