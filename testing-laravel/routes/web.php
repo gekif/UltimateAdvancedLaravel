@@ -19,3 +19,11 @@ Route::get('/', function () {
 //Route::get('/nothing', function () {
 //    return view('welcome');
 //});
+
+
+Route::get('/about', function () {
+//    return "About Me";
+
+    return view('about');
+
+});
