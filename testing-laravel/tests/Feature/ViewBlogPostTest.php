@@ -12,6 +12,7 @@ class ViewBlogPostTest extends TestCase
 {
     use DatabaseMigrations;
 
+
     public function testCanViewBlogPost()
     {
         // Arrangement
@@ -39,4 +40,23 @@ class ViewBlogPostTest extends TestCase
         $resp->assertSee($post->created_at->toFormattedDateString());
 
     }
+
+
+    /**
+     * @group post-not-found
+     */
+    public function testViews404PageWhenPostIsNotFound()
+    {
+        // Action
+        $resp = $this->get('post/INVALID_ID');
+
+        // Assert
+        $resp->assertStatus(404);
+        $resp->assertSee("The page you are looking for could not be found");
+
+
+
+    }
+
+
 }
