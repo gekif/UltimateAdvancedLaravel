@@ -2,4 +2,4 @@
 
 <h2>{{ $post->body }}</h2>
 
-<h3>{{ $post->created_at->toFormattedDateString() }}</h3>
+<h3>{{ $post->createdAt() }}</h3>
