@@ -5,7 +5,6 @@ namespace Tests\Unit;
 use App\Post;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class PostTest extends TestCase
 {
@@ -28,6 +27,7 @@ class PostTest extends TestCase
         // Action
         // Get the value by calling the method
         $formattedDate = $post->createdAt();
+//        $formattedDate = $post->created_at->toFormattedDateString();
 
         // Assert
         // Assert that returned value is as we expect
