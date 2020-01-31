@@ -17,6 +17,8 @@ class PostTest extends TestCase
     public function testCanGetCreatedAtFormattedDate()
     {
         // Arrange
+//        $post = factory(Post::class, 1)->create();
+
         // Create A Post
         $post = Post::create([
             'title' => 'A Simple Title',
