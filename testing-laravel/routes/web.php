@@ -40,12 +40,25 @@ Route::get('/about', function () {
 
 Route::get('/post/{id}', 'PostsController@index');
 
+
 Route::get('/posts', 'PostsController@showAllPosts');
 
-Route::post('/store-post', 'PostsController@storePost');
 
-Route::get('/create-post', 'PostsController@createPost');
+//Route::group(['middleware' => 'auth'], function () {
+//    Route::post('/store-post', 'PostsController@storePost');
+//
+//    Route::get('/create-post', 'PostsController@createPost');
+//
+//});
+
+
+Route::post('/store-post', 'PostsController@storePost')->middleware('auth');
+
+
+Route::get('/create-post', 'PostsController@createPost')->middleware('auth');
+
 
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');

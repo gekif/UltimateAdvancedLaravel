@@ -30,4 +30,14 @@ class CreatePostTest extends DuskTestCase
     }
 
 
+    public function testOnlyAuthUserCanCreatePost()
+    {
+        $this->browse(function (Browser $browser){
+            $browser->visit('/create-post')
+                ->assertPathIs('/login');
+        });
+
+    }
+
+
 }
