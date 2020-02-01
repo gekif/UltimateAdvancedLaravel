@@ -13,6 +13,7 @@ class CreatePostsTest extends TestCase
 {
     use DatabaseMigrations;
 
+
     /**
      * @group create-post
      */
@@ -38,5 +39,30 @@ class CreatePostsTest extends TestCase
         $this->assertEquals('new post body', $post->body);
 
     }
+
+
+    public function testTitleIsRequiredToCreatePost()
+    {
+        $resp = $this->post('/store-post', [
+            'title' => null,
+            'body' => 'new post body'
+        ]);
+
+        $resp->assertSessionHasErrors('title');
+
+    }
+
+
+    public function testBodyIsRequiredToCreatePost()
+    {
+        $resp = $this->post('/store-post', [
+            'title' => 'new post title',
+            'body' => null
+        ]);
+
+        $resp->assertSessionHasErrors('body');
+
+    }
+
 
 }
