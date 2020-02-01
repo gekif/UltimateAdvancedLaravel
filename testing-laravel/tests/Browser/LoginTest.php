@@ -2,6 +2,7 @@
 
 namespace Tests\Browser;
 
+use App\Post;
 use App\User;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
@@ -22,6 +23,22 @@ class LoginTest extends DuskTestCase
                 ->type('password', 'secret')
                 ->press('Login')
                 ->assertPathIs('/home');
+        });
+
+    }
+
+
+    public function testAUserCanViewPost()
+    {
+        $post = factory(Post::class)->create();
+
+        $this->browse(function (Browser $browser) use ($post) {
+            $browser->visit('/posts')
+                ->clickLink('View Post Details')
+                ->assertPathIs("/post/{$post->id}")
+                ->assertSee($post->title)
+                ->assertSee($post->body)
+                ->assertSee($post->createdAt());
         });
 
     }
