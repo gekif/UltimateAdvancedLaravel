@@ -41,3 +41,5 @@ Route::get('/about', function () {
 Route::get('/post/{id}', 'PostsController@index');
 
 Route::get('/posts', 'PostsController@showAllPosts');
+
+Route::post('/store-post', 'PostsController@storePost');

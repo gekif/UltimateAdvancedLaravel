@@ -35,4 +35,13 @@ class PostsController extends Controller
 
     }
 
+
+    public function storePost()
+    {
+        $post = Post::create([
+            'title' => request()->title,
+            'body' => request()->body
+        ]);
+    }
+
 }
