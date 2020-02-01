@@ -49,6 +49,15 @@ class PostsController extends Controller
             'title' => $req->title,
             'body' => $req->body
         ]);
+
+        return redirect('/posts');
+
+    }
+
+
+    public function createPost()
+    {
+        return view('create-post');
     }
 
 }
