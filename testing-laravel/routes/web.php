@@ -43,3 +43,7 @@ Route::get('/post/{id}', 'PostsController@index');
 Route::get('/posts', 'PostsController@showAllPosts');
 
 Route::post('/store-post', 'PostsController@storePost');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
