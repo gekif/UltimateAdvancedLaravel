@@ -80,13 +80,13 @@
                     password: this.password,
                     remember: this.remember
                 })
-                    .then(res => {
+                    .then(resp => {
                         location.reload();
                     })
-                    .catch(err => {
+                    .catch(error => {
                         this.loading = false;
 
-                        if (err.response.status == 422) {
+                        if (error.response.status == 422) {
                             this.errors.push("We couldn't verify your account details.");
                         } else {
                             this.errors.push('Something went wrong');

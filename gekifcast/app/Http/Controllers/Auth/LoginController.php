@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Gekifcast\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use Gekifcast\Exceptions\AuthFailedExceptions;
+use Gekifcast\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -47,7 +48,27 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        return 'login-succesfully';
+        session()->flash('success', 'Successfully logged in');
+
+        return response()->json([
+            'status' => 'ok'
+        ]);
+
     }
+
+
+    /**
+     * Get the failed login response instance.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws ValidationException
+     */
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw new AuthFailedExceptions;
+    }
+
 
 }

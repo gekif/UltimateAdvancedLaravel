@@ -171,11 +171,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Gekifcast\Providers\AppServiceProvider::class,
+        Gekifcast\Providers\AuthServiceProvider::class,
+        // Gekifcast\Providers\BroadcastServiceProvider::class,
+        Gekifcast\Providers\EventServiceProvider::class,
+        Gekifcast\Providers\RouteServiceProvider::class,
 
     ],
 
