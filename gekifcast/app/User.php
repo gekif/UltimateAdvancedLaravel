@@ -15,8 +15,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'username'
+        'name', 'email', 'password', 'username', 'confirm_token'
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -26,4 +27,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function isConfirmed()
+    {
+        return $this->confirm_token == null;
+    }
 }

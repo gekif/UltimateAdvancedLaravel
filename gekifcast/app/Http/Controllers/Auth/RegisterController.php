@@ -2,6 +2,7 @@
 
 namespace Gekifcast\Http\Controllers\Auth;
 
+use Gekifcast\Mail\ConfirmYourEmail;
 use Gekifcast\User;
 use Gekifcast\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -68,7 +69,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'username' => str_slug($data['name']),
             'email' => $data['email'],
-            'password' => bcrypt($data['password'])
+            'password' => bcrypt($data['password']),
+            'confirm_token' => str_random(25)
         ]);
     }
 
