@@ -12,14 +12,12 @@
 */
 
 Route::get('/', function () {
-//    return view('welcome');
-
-    return new Gekifcast\Mail\ConfirmYourEmail();
+    return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('register/confirm', 'ConfirmEmailController@index');
+Route::get('register/confirm', 'ConfirmEmailController@index')->name('confirm-email');
 
 Route::get('logout', 'Auth\LoginController@logout');
 
