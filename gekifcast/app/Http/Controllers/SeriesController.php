@@ -2,6 +2,8 @@
 
 namespace Gekifcast\Http\Controllers;
 
+use Gekifcast\Http\Requests\CreateSeriesRequest;
+use Gekifcast\Series;
 use Illuminate\Http\Request;
 
 class SeriesController extends Controller
@@ -32,9 +34,21 @@ class SeriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateSeriesRequest $request)
     {
-        //
+        // Upload File
+        $image = $request->image->storePublicyAs('series', str_slug($request->title));
+
+        // Create Series
+        Series::create([
+            'title' => $request->title,
+            'slug' => str_slug($request->title),
+            'description' => $request->description,
+            'image_url' => 'url-for-now'
+        ]);
+
+        // Redirect user to a page to see all series
+        return redirect()->back();
     }
 
     /**
