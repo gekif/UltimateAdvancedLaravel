@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Gekifcast\User;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
@@ -69,6 +70,14 @@ class CreateSeriestTest extends TestCase
             'description' => 'the best vue casts ever',
             'image' => 'STRING_INVALID',
         ])->assertSessionHasErrors('image');
+    }
+
+
+    public function test_only_administrators_can_create_series()
+    {
+        $this->actingAs( factory(User::class)->create());
+
+        $this->post('admin/series')->assertSessionHas('error', 'You are not authorized to perform this action');
     }
 
 }
