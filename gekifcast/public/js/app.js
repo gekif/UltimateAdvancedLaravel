@@ -37360,24 +37360,17 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(0)
+            _c("p", { staticClass: "text-center text-muted fs-13 mt-20" }, [
+              _vm._v("Don't have an account?\n                "),
+              _c("a", { attrs: { href: "/register" } }, [_vm._v("Sign up")])
+            ])
           ]
         )
       ])
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "text-center text-muted fs-13 mt-20" }, [
-      _vm._v("Don't have an account?\n                "),
-      _c("a", { attrs: { href: "page-register.html" } }, [_vm._v("Sign up")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
