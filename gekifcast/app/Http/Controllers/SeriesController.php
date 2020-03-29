@@ -41,7 +41,7 @@ class SeriesController extends Controller
 
         $fileName = str_slug($request->title) . '.' . $uploadedImage->getClientOriginalExtension();
 
-        $uploadedImage->storePublicyAs('series', $fileName);
+        $uploadedImage->storePubliclyAs('series', $fileName);
 
         // Create Series
         Series::create([
